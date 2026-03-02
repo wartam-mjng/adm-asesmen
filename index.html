@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrasi Asesmen - SMPN 4 Majenang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .nav-tab.active {
+            background-color: white;
+            color: #1e40af;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gradient-custom text-white shadow-lg pt-8 pb-4">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-3">
+                <div class="bg-white p-3 rounded-full shadow-inner">
+                    <i class="fas fa-clipboard-check text-blue-700 text-3xl"></i>
+                </div>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold tracking-tight">ADMINISTRASI ASESMEN</h1>
+            <p class="text-blue-100 font-medium uppercase tracking-widest text-xs mt-1">SMP Negeri 4 Majenang</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="container mx-auto px-4 mt-8">
+            <div class="flex justify-center space-x-2">
+                <button onclick="openTab('main-menu')" id="btn-main-menu" class="nav-tab active px-6 py-2 rounded-t-lg text-sm transition-all text-blue-700 font-bold">
+                    <i class="fas fa-th-large mr-2"></i>Menu Utama
+                </button>
+                <button onclick="openTab('rekap-data')" id="btn-rekap-data" class="nav-tab px-6 py-2 rounded-t-lg text-sm transition-all text-blue-100 hover:text-white">
+                    <i class="fas fa-chart-bar mr-2"></i>Rekap Presensi
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10 flex-grow">
+        
+        <!-- TAB 1: MENU UTAMA -->
+        <div id="main-menu" class="tab-content active">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Input Presensi -->
+                    <a href="https://smpn4majenang.github.io/absensi-asesmen/" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                        <div class="bg-emerald-100 p-4 rounded-xl text-emerald-600">
+                            <i class="fas fa-user-edit text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Input Presensi</h3>
+                            <p class="text-sm text-slate-500 mt-1">Form Ketidakhadiran Peserta Asesmen</p>
+                        </div>
+                    </a>
+
+                    <!-- Denah Ruang -->
+                    <a href="https://drive.google.com/file/d/1sOs4mauZesLeh9IVyKUUXS2EBUV2OB9Y/view" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                        <div class="bg-blue-100 p-4 rounded-xl text-blue-600">
+                            <i class="fas fa-map-marked-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Denah Ruang</h3>
+                            <p class="text-sm text-slate-500 mt-1">Informasi tata letak tempat duduk siswa per ruang.</p>
+                        </div>
+                    </a>
+
+                    <!-- Jadwal Pengawas -->
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQRcoLvsHCpTfOm8GEPHIoY7gJKsiVtS6BfNbeOqauJ4CHfEa_s0gkvOyq0-QEXgEeq8T4WiQcCKCbC/pubhtml?gid=1510214305&single=true" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                        <div class="bg-amber-100 p-4 rounded-xl text-amber-600">
+                            <i class="fas fa-user-clock text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Jadwal Pengawas</h3>
+                            <p class="text-sm text-slate-500 mt-1">Informasi pengawas ruang</p>
+                        </div>
+                    </a>
+
+                    <!-- Folder Kunci Jawaban -->
+                    <a href="https://drive.google.com/drive/folders/1VgwBQahdCQRb20AEkTO1-zUDjuH41zKf?usp=sharing" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                        <div class="bg-purple-100 p-4 rounded-xl text-purple-600">
+                            <i class="fas fa-folder-open text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Folder Kunci Jawaban</h3>
+                            <p class="text-sm text-slate-500 mt-1">Akses dokumen kunci jawaban untuk koreksi.</p>
+                        </div>
+                    </a>
+
+                    <!-- Kode Admin Ruang (Updated Label) -->
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQRcoLvsHCpTfOm8GEPHIoY7gJKsiVtS6BfNbeOqauJ4CHfEa_s0gkvOyq0-QEXgEeq8T4WiQcCKCbC/pubhtml?gid=902986125&single=true" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                        <div class="bg-rose-100 p-4 rounded-xl text-rose-600">
+                            <i class="fas fa-key text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Kode Admin Ruang</h3>
+                            <p class="text-sm text-slate-500 mt-1">Daftar kode otorisasi untuk admin ruang asesmen.</p>
+                        </div>
+                    </a>
+
+                    <!-- Akun Guru -->
+                    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQRcoLvsHCpTfOm8GEPHIoY7gJKsiVtS6BfNbeOqauJ4CHfEa_s0gkvOyq0-QEXgEeq8T4WiQcCKCbC/pubhtml?gid=1080550674&single=true" target="_blank" class="glass-card p-6 rounded-2xl flex items-start space-x-4">
+                        <div class="bg-green-100 p-4 rounded-xl text-green-600">
+                            <i class="fas fa-user-circle text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Akun Guru</h3>
+                            <p class="text-sm text-slate-500 mt-1">Informasi kredensial login akun pendidik.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Info Box -->
+                <div class="mt-12 p-6 bg-white border border-slate-200 rounded-2xl flex items-center shadow-sm">
+                    <div class="bg-blue-50 p-3 rounded-full mr-4 text-blue-600">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <p class="text-sm text-slate-600 italic">Gunakan menu <strong>Rekap Presensi</strong> di bagian atas untuk melihat data yang sudah masuk secara real-time.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: REKAP DATA -->
+        <div id="rekap-data" class="tab-content">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 space-y-4 md:space-y-0">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Monitoring Kehadiran</h2>
+                        <p class="text-slate-500 text-sm">Data sinkronisasi langsung dari Google Sheets.</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQsjy2yj4OA-ejEIYE2neMu2-9oY2IVTqBdxONtO8RU-7teEnxKh6Dt13WI7sya_Y_dDAskdnntvXEg/pub?gid=682030874&single=true&output=csv" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all">
+                            <i class="fas fa-file-excel mr-2"></i>Download CSV
+                        </a>
+                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQsjy2yj4OA-ejEIYE2neMu2-9oY2IVTqBdxONtO8RU-7teEnxKh6Dt13WI7sya_Y_dDAskdnntvXEg/pubhtml?gid=682030874&single=true" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all">
+                            <i class="fas fa-external-link-alt mr-2"></i>Layar Penuh
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Iframe Container -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 min-h-[600px] flex flex-col">
+                    <div class="bg-slate-800 px-4 py-3 text-white flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-xs font-mono opacity-70 ml-2">live_monitor_v2.csv</span>
+                        </div>
+                        <div class="flex items-center text-xs opacity-80">
+                            <i class="fas fa-sync-alt animate-spin-slow mr-2 text-green-400"></i> Auto-Sync Active
+                        </div>
+                    </div>
+                    <div class="flex-grow relative">
+                        <iframe 
+                            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQsjy2yj4OA-ejEIYE2neMu2-9oY2IVTqBdxONtO8RU-7teEnxKh6Dt13WI7sya_Y_dDAskdnntvXEg/pubhtml?gid=682030874&amp;single=true&amp;widget=true&amp;headers=false" 
+                            class="absolute top-0 left-0 w-full h-full border-0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <p class="mt-4 text-center text-xs text-slate-400">
+                    Jika data terbaru tidak muncul, silakan segarkan halaman ini atau klik tombol Layar Penuh.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-10 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm mb-1 font-semibold">PANITIA ASESMEN SMPN 4 MAJENANG</p>
+            <p class="text-slate-400 text-xs tracking-widest uppercase">Digital Excellence in Education</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab content
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+
+            // Deactivate all tab buttons
+            const tabs = document.getElementsByClassName('nav-tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+                tabs[i].classList.add('text-blue-100');
+            }
+
+            // Show current tab content and activate button
+            document.getElementById(tabName).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-blue-100');
+        }
+    </script>
+
+    <style>
+        .animate-spin-slow {
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+
+</body>
+</html>
